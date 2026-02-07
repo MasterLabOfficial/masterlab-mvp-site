@@ -14,6 +14,30 @@
 
     <!-- Lock Logic -->
     <script src="rm-lock.js"></script>
+
+    <style>
+        /* Lock indicator styling */
+        .lock-status {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .unlocked {
+            color: #00FFA7; /* Joshua Glow */
+        }
+        .locked {
+            color: #ff4d4d;
+        }
+        .lesson-card.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,62 +49,92 @@
         <div class="lesson-grid">
 
             <!-- LESSON 1 -->
-            <a class="lesson-card" href="lessons/rm-lesson1.html">
-                <h2>Lesson 1</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson1.html" data-lesson="1">
+                <div class="lesson-header">
+                    <h2>Lesson 1</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>What Is a Mineral?</p>
             </a>
 
             <!-- LESSON 2 -->
-            <a class="lesson-card" href="lessons/rm-lesson2.html">
-                <h2>Lesson 2</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson2.html" data-lesson="2">
+                <div class="lesson-header">
+                    <h2>Lesson 2</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>Mineral Criteria & Non‑Examples</p>
             </a>
 
             <!-- LESSON 3 -->
-            <a class="lesson-card" href="lessons/rm-lesson3.html">
-                <h2>Lesson 3</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson3.html" data-lesson="3">
+                <div class="lesson-header">
+                    <h2>Lesson 3</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>Mineral Properties</p>
             </a>
 
             <!-- LESSON 4 -->
-            <a class="lesson-card" href="lessons/rm-lesson4.html">
-                <h2>Lesson 4</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson4.html" data-lesson="4">
+                <div class="lesson-header">
+                    <h2>Lesson 4</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>Mineral ID Strategy</p>
             </a>
 
             <!-- LESSON 5 -->
-            <a class="lesson-card" href="lessons/rm-lesson5.html">
-                <h2>Lesson 5</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson5.html" data-lesson="5">
+                <div class="lesson-header">
+                    <h2>Lesson 5</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>Mineral Groups</p>
             </a>
 
             <!-- LESSON 6 -->
-            <a class="lesson-card" href="lessons/rm-lesson6.html">
-                <h2>Lesson 6</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson6.html" data-lesson="6">
+                <div class="lesson-header">
+                    <h2>Lesson 6</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>Igneous Rocks</p>
             </a>
 
             <!-- LESSON 7 -->
-            <a class="lesson-card" href="lessons/rm-lesson7.html">
-                <h2>Lesson 7</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson7.html" data-lesson="7">
+                <div class="lesson-header">
+                    <h2>Lesson 7</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>Sedimentary Rocks</p>
             </a>
 
             <!-- LESSON 8 -->
-            <a class="lesson-card" href="lessons/rm-lesson8.html">
-                <h2>Lesson 8</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson8.html" data-lesson="8">
+                <div class="lesson-header">
+                    <h2>Lesson 8</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>Metamorphic Rocks</p>
             </a>
 
             <!-- LESSON 9 -->
-            <a class="lesson-card" href="lessons/rm-lesson9.html">
-                <h2>Lesson 9</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson9.html" data-lesson="9">
+                <div class="lesson-header">
+                    <h2>Lesson 9</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>Rock Cycle & Processes</p>
             </a>
 
             <!-- LESSON 10 -->
-            <a class="lesson-card" href="lessons/rm-lesson10.html">
-                <h2>Lesson 10</h2>
+            <a class="lesson-card" href="Lessons/rm-lesson10.html" data-lesson="10">
+                <div class="lesson-header">
+                    <h2>Lesson 10</h2>
+                    <span class="lock-status">Loading...</span>
+                </div>
                 <p>Competition Strategy & Official Sheet</p>
             </a>
 
@@ -91,6 +145,49 @@
             Regionals: <strong>February 14</strong>
         </p>
     </div>
+
+    <!-- Lock Indicator Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".lesson-card");
+
+        cards.forEach(card => {
+            const lesson = parseInt(card.dataset.lesson);
+            const statusEl = card.querySelector(".lock-status");
+
+            const dayUnlocked = isDayUnlocked(lesson);
+            const testUnlocked = isTestComplete(lesson);
+
+            if (dayUnlocked && testUnlocked) {
+                statusEl.textContent = "🔓 Unlocked";
+                statusEl.classList.add("unlocked");
+            } 
+            else if (!dayUnlocked) {
+                statusEl.textContent = "🔒 Locked (Date)";
+                statusEl.classList.add("locked");
+                card.classList.add("disabled");
+                card.href = "#";
+            }
+            else if (!testUnlocked) {
+                statusEl.textContent = "🔒 Locked (Test)";
+                statusEl.classList.add("locked");
+                card.classList.add("disabled");
+                card.href = "#";
+            }
+        });
+    });
+    </script>
+
+    <p id="xp-display" style="margin-top: 20px; font-size: 1.1rem; opacity: 0.8;">
+        XP: Loading...
+    </p>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const xp = localStorage.getItem("ml_xp") || "0";
+        document.getElementById("xp-display").textContent = `XP: ${xp}`;
+    });
+    </script>
 
 </body>
 </html>

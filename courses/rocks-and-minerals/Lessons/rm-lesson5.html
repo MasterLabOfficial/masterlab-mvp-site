@@ -2,3 +2,10 @@
 <script>
     RMLock.enforceLessonLock(5); // change number per lesson
 </script>
+
+<script>
+    // Give XP when the lesson is viewed for the first time
+    if (!localStorage.getItem("rm_lesson5_xp")) {
+        RMRewards.rewardLessonXP(5);
+    }
+</script>

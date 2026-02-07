@@ -1,0 +1,101 @@
+/* ============================================================
+   MasterLab — Rocks & Minerals Course Map Styles
+   Clean, modern, neon-mint accented UI
+   ============================================================ */
+
+/* Container */
+.course-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Titles */
+.course-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.course-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+/* Lesson Grid */
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Lesson Cards */
+.lesson-card {
+    display: block;
+    background: #111;
+    border: 2px solid #222;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: left;
+    transition: 0.25s ease;
+    text-decoration: none;
+    color: white;
+}
+
+.lesson-card:hover {
+    border-color: #00FFA7;
+    transform: translateY(-4px);
+    box-shadow: 0 0 12px #00FFA7;
+}
+
+/* Disabled (Locked) */
+.lesson-card.disabled {
+    opacity: 0.45;
+    border-color: #333;
+    box-shadow: none;
+    transform: none;
+    pointer-events: none;
+}
+
+/* Lesson Header */
+.lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Lesson Title */
+.lesson-card h2 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+/* Lesson Description */
+.lesson-card p {
+    margin-top: 10px;
+    opacity: 0.85;
+}
+
+/* Lock Status */
+.lock-status {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.unlocked {
+    color: #00FFA7; /* Neon Mint */
+}
+
+.locked {
+    color: #ff4d4d;
+}
+
+/* Footer Note */
+.footer-note {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
