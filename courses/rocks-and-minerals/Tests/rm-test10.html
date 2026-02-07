@@ -1,8 +1,123 @@
 <script src="../rm-lock.js"></script>
 <script>
-    RMLock.enforceTestLock(10); // change number per test
-    RMLock.markTestComplete(10); // change number per test
-    RMRewards.rewardTestXP(10); // change number per test
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterLab Test</title>
+
+    <link rel="stylesheet" href="/masterlab-mvp-site/css/global.css">
+    <link rel="stylesheet" href="/masterlab-mvp-site/css/test.css">
+    <link rel="stylesheet" href="../rm-style.css">
+
+    <script src="/masterlab-mvp-site/js/rm-lock.js"></script>
+    <script src="/masterlab-mvp-site/js/ml-test-engine.js"></script>
+    <script src="/masterlab-mvp-site/js/test.js"></script>
+</head>
+
+<body>
+
+<script>
+    const lesson = 10;  
+    RMLock.enforceTestLock(lesson);
+</script>
+
+<div class="test-container">
+
+    <h1 class="lesson-title">Test <span id="lesson-number"></span></h1>
+    <p class="lesson-subtitle">MasterLab Rocks & Minerals (Division C)</p>
+    <hr>
+
+    <form id="test-form">
+        <div id="test-container"></div>
+
+        <button type="button" id="submit-btn">Submit Test</button>
+        <button type="button" id="retry-btn" style="display:none;">Retry Test</button>
+    </form>
+
+    <div id="score-container"></div>
+
+</div>
+
+<script>
+    document.getElementById("lesson-number").textContent = lesson;
+
+    const attempt = MLTestEngine.getAttemptNumber(lesson);
+    const test = MLTestEngine.generateTest(lesson, attempt);
+
+    function renderQuestion(q, number) {
+        return `
+            <div class="question-block">
+                <p><strong>${number}.</strong> ${q.prompt}</p>
+                ${q.choices.map(c => `
+                    <label>
+                        <input type="radio" name="q${number}" value="${c}">
+                        ${c}
+                    </label><br>
+                `).join("")}
+            </div>
+        `;
+    }
+
+    function renderTest(test) {
+        const container = document.getElementById("test-container");
+        let html = "";
+        let index = 1;
+
+        test.lessonQuestions.forEach(q => html += renderQuestion(q, index++));
+        test.relearnQuestions.forEach(q => html += renderQuestion(q, index++));
+        test.pastQuestions.forEach(q => html += renderQuestion(q, index++));
+        test.vocabQuestions.forEach(q => html += renderQuestion(q, index++));
+
+        container.innerHTML = html;
+    }
+
+    renderTest(test);
+
+    function gradeTest() {
+        let score = 0;
+        const total = Object.keys(test.answerKey).length;
+
+        Object.keys(test.answerKey).forEach((key, i) => {
+            const selected = document.querySelector(`input[name="q${i+1}"]:checked`);
+            if (selected && selected.value === test.answerKey[key]) {
+                score++;
+            }
+        });
+
+        const percent = Math.round((score / total) * 100);
+        const container = document.getElementById("score-container");
+
+        container.innerHTML = `<p>You scored ${score} / ${total} (${percent}%).</p>`;
+
+        if (percent >= 70) {
+            container.innerHTML += `<p class="pass">You passed this test.</p>`;
+
+            if (attempt === 1 && !localStorage.getItem(`ml_test_${lesson}_xp`)) {
+                RMRewards.rewardTestXP(lesson);
+                localStorage.setItem(`ml_test_${lesson}_xp`, "earned");
+                container.innerHTML += `<p class="xp-earned">+100 XP awarded.</p>`;
+            }
+        } else {
+            container.innerHTML += `<p class="fail">You did not reach the passing score.</p>`;
+        }
+
+        document.getElementById("retry-btn").style.display = "inline-block";
+    }
+
+    document.getElementById("submit-btn").addEventListener("click", gradeTest);
+
+    document.getElementById("retry-btn").addEventListener("click", () => {
+        MLTestEngine.incrementAttempt(lesson);
+        location.reload();
+    });
+</script>
+
+</body>
+</html>
+
 </script>
 
 
