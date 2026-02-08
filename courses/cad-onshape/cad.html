@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <title>CAD Onshape Course</title>
     <link rel="stylesheet" href="/masterlab-mvp-site/css/global.css">
+    
+    <!-- Scripts for CAD Course -->
+    <script src="/masterlab-mvp-site/js/ml-xp.js"></script>
+    <script src="lesson-data.js"></script>
+    <script src="cad-render-lessons.js"></script>
 </head>
 <body>
 
 <h1>Engineering CAD (Onshape)</h1>
 <p>Welcome to the MasterLab CAD course. Choose a lesson below to begin or continue your progress.</p>
+
+<div class="progress-container">
+    <h3>Your Progress</h3>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <a id="continue-btn" class="continue-button" href="#">Continue</a>
+</div>
+
+<div id="lesson-container"></div>
 
 <div class="lesson-grid">
 

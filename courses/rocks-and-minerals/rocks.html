@@ -12,8 +12,11 @@
     <!-- R&M Styles -->
     <link rel="stylesheet" href="rm-style.css">
 
-    <!-- Lock Logic -->
-    <script src="rm-lock.js"></script>
+    <!-- Scripts for R&M Course -->
+    <script src="/masterlab-mvp-site/js/ml-xp.js"></script>
+    <script src="lesson-data.js"></script>
+    <script src="rm-render-lessons.js"></script>
+    <script src="rm-lock.js"></script> <!-- Hybrid Lock System -->
 
     <style>
         /* Lock indicator styling */
@@ -45,6 +48,16 @@
     <div class="course-container">
         <h1 class="course-title">Rocks & Minerals (Division C)</h1>
         <p class="course-subtitle">MasterLab Science Olympiad Prep</p>
+
+        <div class="progress-container">
+            <h3>Your Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <a id="continue-btn" class="continue-button" href="#">Continue</a>
+        </div>
+
+        <div id="lesson-container"></div>
 
         <div class="lesson-grid">
 
