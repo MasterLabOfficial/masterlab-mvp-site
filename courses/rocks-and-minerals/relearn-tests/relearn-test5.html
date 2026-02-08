@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ReLearn Test</title>
+    <link rel="stylesheet" href="/masterlab-mvp-site/css/global.css">
+</head>
+<body>
+
+<h1>ReLearn Test</h1>
+<p>You must score 100% to clear your weak spots.</p>
+
+<div id="test"></div>
+<button id="submit">Submit</button>
+
+<script>
+    const questions = [
+        {
+            prompt: "What property describes how a mineral reflects light?",
+            choices: ["Luster", "Cleavage", "Hardness", "Density"],
+            correct: "Luster"
+        },
+        {
+            prompt: "What is streak?",
+            choices: ["Color of powdered mineral", "How it breaks", "Its density", "Its hardness"],
+            correct: "Color of powdered mineral"
+        }
+    ];
+
+    const container = document.getElementById("test");
+    let html = "";
+
+    questions.forEach((q, i) => {
+        html += `<p><strong>${i+1}.</strong> ${q.prompt}</p>`;
+        q.choices.forEach(c => {
+            html += `<label><input type="radio" name="q${i}" value="${c}"> ${c}</label><br>`;
+        });
+    });
+
+    container.innerHTML = html;
+
+    document.getElementById("submit").onclick = () => {
+        let correct = 0;
+
+        questions.forEach((q, i) => {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected && selected.value === q.correct) correct++;
+        });
+
+        if (correct === questions.length) {
+            alert("Perfect! Weak spots cleared.");
+            // Clear weak spots
+            localStorage.removeItem("ml_lesson_5_weakspots");
+            window.location.href = "lesson5.html";
+        } else {
+            alert("Not perfect. Try again.");
+        }
+    };
+</script>
+
+</body>
+</html>

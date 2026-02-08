@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocks & Minerals Game Hub</title>
+
+    <link rel="stylesheet" href="/masterlab-mvp-site/css/global.css">
+    <link rel="stylesheet" href="/masterlab-mvp-site/css/test.css">
+    <link rel="stylesheet" href="./rm-style.css">
+
+    <script src="/masterlab-mvp-site/js/ml-test-engine.js"></script>
+    <script src="/masterlab-mvp-site/js/rm-lock.js"></script>
+    <script src="/masterlab-mvp-site/js/test.js"></script>
+</head>
+<body>
+
+<div class="gamehub-container">
+    <h1 class="lesson-title">Rocks & Minerals Game Hub</h1>
+    <p class="lesson-subtitle">Practice, play, and earn XP while you learn.</p>
+    <hr>
+
+    <div class="game-grid">
+
+        <!-- GAME 1: Vocab Blitz -->
+        <div class="game-card">
+            <h2>Vocab Blitz</h2>
+            <p>Rapid-fire vocab questions from today’s lesson. Great for quick warm‑ups.</p>
+            <button type="button" onclick="startVocabBlitz()">Play Vocab Blitz</button>
+        </div>
+
+        <!-- GAME 2: Mineral Match -->
+        <div class="game-card">
+            <h2>Mineral Match</h2>
+            <p>Match properties (luster, streak, hardness) to the correct mineral.</p>
+            <button type="button" onclick="startMineralMatch()">Play Mineral Match</button>
+        </div>
+
+        <!-- GAME 3: Past Test Remix -->
+        <div class="game-card">
+            <h2>Past Test Remix</h2>
+            <p>Practice with regenerated questions inspired by your past tests.</p>
+            <button type="button" onclick="startPastRemix()">Play Past Test Remix</button>
+        </div>
+
+        <!-- GAME 4: ReLearn Challenge -->
+        <div class="game-card">
+            <h2>ReLearn Challenge</h2>
+            <p>Target your weak spots with focused questions and instant feedback.</p>
+            <button type="button" onclick="startRelearnChallenge()">Play ReLearn Challenge</button>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="gamehub-footer">
+        <button type="button" onclick="goToCourseMap()">Back to Course Map</button>
+    </div>
+</div>
+
+<script>
+    // Simple nav helpers – wire these to real pages as you build them.
+
+    function goToCourseMap() {
+        window.location.href = "./course-map.html";
+    }
+
+    function startVocabBlitz() {
+        // For now, send them to a dedicated vocab game page (future):
+        // /courses/rocks-and-minerals/games/vocab-blitz.html
+        window.location.href = "./games/vocab-blitz.html";
+    }
+
+    function startMineralMatch() {
+        window.location.href = "./games/mineral-match.html";
+    }
+
+    function startPastRemix() {
+        window.location.href = "./games/past-remix.html";
+    }
+
+    function startRelearnChallenge() {
+        window.location.href = "./games/relearn-challenge.html";
+    }
+</script>
+
+<style>
+    .gamehub-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1.5rem;
+    }
+    .game-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    .game-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1rem;
+        background: #fafafa;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    .game-card h2 {
+        margin-top: 0;
+    }
+    .game-card button {
+        margin-top: 0.75rem;
+    }
+    .gamehub-footer {
+        margin-top: 2rem;
+        text-align: center;
+    }
+</style>
+
+</body>
+</html>
