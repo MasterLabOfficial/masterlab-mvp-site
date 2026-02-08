@@ -2,10 +2,34 @@
    XP Reward System for Rocks & Minerals
    ============================================================ */
 
+function showXPCoin() {
+    const coin = document.createElement("div");
+    coin.classList.add("xp-coin");
+    coin.textContent = "+50 XP";
+    document.body.appendChild(coin);
+    setTimeout(() => coin.remove(), 1000);
+}
+
+function showLevelUp() {
+    const burst = document.createElement("div");
+    burst.classList.add("level-up-burst");
+    burst.textContent = "LEVEL UP!";
+    document.body.appendChild(burst);
+    setTimeout(() => burst.remove(), 800);
+}
+
 function addXP(amount) {
     const current = parseInt(localStorage.getItem("ml_xp") || "0");
     const updated = current + amount;
     localStorage.setItem("ml_xp", updated);
+
+    showXPCoin();
+
+    // Level-up every 500 XP
+    if (Math.floor(updated / 500) > Math.floor(current / 500)) {
+        showLevelUp();
+    }
+
     return updated;
 }
 
@@ -38,6 +62,17 @@ function updateStreak() {
 }
 
 updateStreak();
+
+function applyStreakRewards() {
+    const streak = parseInt(localStorage.getItem("ml_streak") || "0");
+
+    if (streak > 0 && streak % 5 === 0) {
+        addXP(200); // bonus XP
+        localStorage.setItem("ml_streak_reward", "true");
+    }
+}
+
+applyStreakRewards();
 
 window.MLStreak = {
     updateStreak

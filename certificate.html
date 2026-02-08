@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Completion — MasterLab</title>
+    <link rel="stylesheet" href="/masterlab-mvp-site/css/global.css">
+</head>
+<body>
+    <div class="certificate">
+        <h1>Certificate of Completion</h1>
+        <h2 id="course-name"></h2>
+        <p>This certifies that you have completed the course.</p>
+    </div>
+
+    <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("course-name").textContent =
+        params.get("course") || "MasterLab Course";
+    </script>
+</body>
+</html>

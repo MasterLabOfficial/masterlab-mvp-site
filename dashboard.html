@@ -16,6 +16,16 @@
             <div class="dashboard-stat">XP: <span id="xp-display">0</span></div>
             <div class="dashboard-stat">Streak: <span id="streak-display">0</span> days</div>
         </div>
+
+        <div class="dashboard-widget">
+            <h3>Continue Where You Left Off</h3>
+            <a id="resume-link" class="continue-button" href="#">Loading...</a>
+        </div>
+
+        <div class="dashboard-widget">
+            <h3>Advanced Options</h3>
+            <button id="clear-progress-btn" class="clear-button">Clear All Progress</button>
+        </div>
     </div>
 
     <script>
@@ -25,6 +35,46 @@
 
         document.getElementById("streak-display").textContent =
             localStorage.getItem("ml_streak") || "0";
+
+        // Resume functionality
+        const courses = [
+            { prefix: "rm", lessons: 10, base: "/masterlab-mvp-site/courses/rocks-and-minerals/" },
+            { prefix: "cad", lessons: 10, base: "/masterlab-mvp-site/courses/cad-onshape/" }
+        ];
+
+        let bestCourse = null;
+        let bestLesson = 0;
+
+        courses.forEach(course => {
+            for (let i = 1; i <= course.lessons; i++) {
+                if (localStorage.getItem(`${course.prefix}_lesson${i}_xp`) === "true") {
+                    if (i > bestLesson) {
+                        bestLesson = i;
+                        bestCourse = course;
+                    }
+                }
+            }
+        });
+
+        const resume = document.getElementById("resume-link");
+
+        if (!bestCourse) {
+            resume.textContent = "Start Rocks & Minerals";
+            resume.href = "/masterlab-mvp-site/courses/rocks-and-minerals/Lessons/rm-lesson1.html";
+        } else {
+            const next = Math.min(bestLesson + 1, bestCourse.lessons);
+            resume.textContent = `Continue Lesson ${next}`;
+            resume.href = `${bestCourse.base}Lessons/${bestCourse.prefix}-lesson${next}.html`;
+        }
+
+        // Clear progress button
+        document.getElementById("clear-progress-btn").addEventListener("click", () => {
+            if (confirm("Are you sure you want to clear all your progress? This cannot be undone.")) {
+                localStorage.clear();
+                alert("All progress has been cleared.");
+                location.reload();
+            }
+        });
     });
     </script>
 </body>
