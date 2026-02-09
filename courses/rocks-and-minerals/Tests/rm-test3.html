@@ -17,6 +17,15 @@
     <script src="/masterlab-mvp-site/js/ml-test-engine.js"></script>
     <script src="/masterlab-mvp-site/js/ml-relearn-test-engine.js"></script>
     <script src="/masterlab-mvp-site/js/test.js"></script>
+    <script>
+(async () => {
+    await MLTestEngine.startTest({
+        lesson: LESSON_NUMBER,
+        course: COURSE_NAME
+    });
+})();
+</script>
+
 </head>
 
 <body>
