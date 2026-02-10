@@ -19,7 +19,15 @@
 <body>
 
 <script>
-    RMLock.enforceTestLock(1);
+<script src="/masterlab-mvp-site/js/ml-browser-ai.js"></script>
+<script src="/masterlab-mvp-site/js/ml-test-engine.js"></script>
+<script>
+const lesson = 1;
+const attempt = MLTestEngine.getAttemptNumber(lesson);
+(async () => {
+    const test = await MLTestEngine.generateTest("rocks-and-minerals", lesson, attempt);
+    MLTestEngine.renderTest(test);
+})();
 </script>
 
 <div class="test-container">

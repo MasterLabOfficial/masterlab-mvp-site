@@ -50,6 +50,24 @@ function isLessonUnlocked(lessonNumber) {
     return localStorage.getItem(`rm_lesson${previousLesson}_completed`) === "true";
 }
 
+/* ============================================================
+   ENFORCEMENT HELPERS
+   ============================================================ */
+
+function enforceLessonLock(lessonNumber) {
+    if (!isLessonUnlocked(lessonNumber)) {
+        window.location.href = "../rocks.html";
+    }
+}
+
+function enforceTestLock(lessonNumber) {
+    if (!isLessonUnlocked(lessonNumber)) {
+        window.location.href = "../rocks.html";
+    }
+}
+
 window.RMLock = {
-    isLessonUnlocked
+    isLessonUnlocked,
+    enforceLessonLock,
+    enforceTestLock
 };
