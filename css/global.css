@@ -339,3 +339,35 @@ button:hover,
     filter: drop-shadow(0 0 6px var(--neon-mint));
 }
 
+
+/* ============================================================
+   MASTERLAB BLOCK + AUDIO LAYOUT
+   ============================================================ */
+
+.lesson-blocks {
+  margin-top: 1.5rem;
+}
+
+.lesson-block {
+  display: none;
+}
+
+.lesson-block-header {
+  margin-bottom: 1rem;
+}
+
+.lesson-audio {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.lesson-block-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.lesson-block-nav button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
