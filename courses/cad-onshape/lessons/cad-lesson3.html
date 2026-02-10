@@ -12,20 +12,22 @@
 </div>
 
 <h1>CAD Lesson 3 – Sketch Strategy & Construction Geometry</h1>
+<div class="lesson-block" data-block="1" data-title="CAD Lesson 3 – Sketch Strategy & Construction Geometry">
+CAD Lesson 3 – Sketch Strategy & Construction Geometry
 
 <p>
     Good models start with clean sketches. This lesson focuses on how to plan sketches,
     use construction geometry, and avoid messy, overcomplicated profiles.
 </p>
-
-<h2>Sketch Planning</h2>
+</div>
+<div class="lesson-block" data-block="2" data-title="Sketch Planning">
 <ul>
     <li>Start with the simplest shape that represents the main form.</li>
     <li>Add detail with additional features, not one giant sketch.</li>
     <li>Use centerlines to control symmetry and dimensions.</li>
 </ul>
-
-<h2>Construction Geometry</h2>
+</div>
+<div class="lesson-block" data-block="3" data-title="Construction Geometry">
 <p>
     Construction lines (often dashed) are used for references, not solid edges.
 </p>
@@ -34,35 +36,24 @@
     <li>Dimension to construction geometry to keep sketches clean.</li>
     <li>Onshape shortcut: toggle construction with <strong>Q</strong>.</li>
 </ul>
-
-<h2>Common Mistakes</h2>
+</div>
+<div class="lesson-block" data-block="4" data-title="Common Mistakes">
 <ul>
     <li>Too many entities in one sketch.</li>
     <li>Using edges of features instead of reference geometry.</li>
     <li>Leaving sketches underdefined (blue) when they matter.</li>
 </ul>
-
-<h2>Quick Check</h2>
+</div>
+<div class="lesson-block" data-block="5" data-title="Quick Check">
 <ol>
     <li>What is construction geometry used for?</li>
     <li>Why is it better to use multiple simple sketches than one huge one?</li>
     <li>How can centerlines help with symmetry?</li>
 </ol>
-
-<h2>Vocabulary</h2>
-<ul id="vocab-list"></ul>
-
-<script>
-const vocab_3 = [
-    { term: "Sketch Strategy", def: "Planning the simplest shapes first, then adding details with additional features." },
-    { term: "Construction Geometry", def: "Reference lines (dashed) used for constraints but not included in the final shape." },
-    { term: "Centerline", def: "A construction line that defines the center or axis of symmetry for a feature." },
-    { term: "Underdefined Sketch", def: "A sketch shown in blue with insufficient constraints or dimensions." },
-    { term: "Fully Defined Sketch", def: "A sketch shown in black with all necessary constraints and dimensions." },
-    { term: "Design Intent", def: "The reasoning behind design choices that makes the model robust to edits." }
-];
-</script>
-
+</div>
+<div class="lesson-block" data-block="6" data-title="Vocabulary">
+  <div class="vocab-section" data-lesson="3"></div>
+</div>
 <div id="relearn-block"></div>
 
 <script src="/masterlab-mvp-site/js/ml-relearn-engine.js"></script>
@@ -74,6 +65,31 @@ const vocab_3 = [
 <script src="/masterlab-mvp-site/js/ml-browser-ai.js"></script>
 <script src="/masterlab-mvp-site/js/ml-lesson-blocks.js"></script>
 <script src="/masterlab-mvp-site/js/ml-vocab-engine.js"></script>
-</div></div>
+  <div class="vocab-section" data-lesson="3"></div>
+
+<div id="ml-audio-panel">
+  <div id="ml-audio-header">
+    <span id="ml-audio-section-label"></span>
+    <button id="ml-audio-toggle" type="button">[Audio is ON]</button>
+  </div>
+  <audio id="ml-audio-player" controls></audio>
+</div>
+<script src="/masterlab-mvp-site/js/ml-audio-engine.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>MLAudioEngine.init({courseId:"cad-onshape"}));</script>
+<div id="ml-audio-panel">
+  <div id="ml-audio-header">
+    <span id="ml-audio-section-label"></span>
+    <button id="ml-audio-toggle" type="button">[Audio is ON]</button>
+  </div>
+  <audio id="ml-audio-player" controls></audio>
+</div>
+<script src="/masterlab-mvp-site/js/ml-audio-engine.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>MLAudioEngine.init({courseId:"cad-onshape"}));</script>
 </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    MLVocabEngine.loadVocab("cad-onshape", 3);
+  });
+</script>

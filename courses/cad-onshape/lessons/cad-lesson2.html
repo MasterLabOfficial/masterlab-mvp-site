@@ -12,21 +12,23 @@
 </div>
 
 <h1>CAD Lesson 2 – Design Intent & Parametric Modeling</h1>
+<div class="lesson-block" data-block="1" data-title="CAD Lesson 2 – Design Intent & Parametric Modeling">
+CAD Lesson 2 – Design Intent & Parametric Modeling
 
 <p>
     Design intent is about building models that update correctly when dimensions change.
     In Onshape, this means using constraints and dimensions that reflect how the part
     should behave, not just how it looks once.
 </p>
-
-<h2>What is Design Intent?</h2>
+</div>
+<div class="lesson-block" data-block="2" data-title="What is Design Intent?">
 <ul>
     <li>Thinking about how a part might change in the future.</li>
     <li>Using symmetry, equal constraints, and patterns instead of manual duplication.</li>
     <li>Placing dimensions on critical features, not random edges.</li>
 </ul>
-
-<h2>Parametric Modeling</h2>
+</div>
+<div class="lesson-block" data-block="3" data-title="Parametric Modeling">
 <p>
     Parametric models are driven by parameters (dimensions, relations, variables).
     Changing a dimension should update the model predictably.
@@ -36,36 +38,24 @@
     <li>Use <strong>Symmetric</strong> to keep geometry centered.</li>
     <li>Use <strong>Patterns</strong> instead of copying features manually.</li>
 </ul>
-
-<h2>Best Practices</h2>
+</div>
+<div class="lesson-block" data-block="4" data-title="Best Practices">
 <ul>
     <li>Dimension to centerlines and reference geometry when possible.</li>
     <li>Avoid over‑defining sketches with redundant dimensions.</li>
     <li>Think: “If this dimension changes, does the model still make sense?”</li>
 </ul>
-
-<h2>Quick Check</h2>
+</div>
+<div class="lesson-block" data-block="5" data-title="Quick Check">
 <ol>
     <li>What is design intent?</li>
     <li>Why is parametric modeling powerful?</li>
     <li>When should you use patterns instead of copying features?</li>
 </ol>
-
-<h2>Vocabulary</h2>
-<ul id="vocab-list"></ul>
-
-<script>
-const vocab_2 = [
-    { term: "Design Intent", def: "The reasoning behind design choices; how a model should behave when dimensions change." },
-    { term: "Parametric Modeling", def: "Designing models where geometry is driven by dimensions and constraints." },
-    { term: "Equal Constraint", def: "A constraint that makes multiple entities (lines, circles) the same size." },
-    { term: "Symmetric Constraint", def: "A constraint that mirrors geometry across a centerline or axis." },
-    { term: "Pattern", def: "A feature that automatically repeats other features in a line or circle." },
-    { term: "Reference Geometry", def: "Construction elements (planes, axes, points) that help build robust models." },
-    { term: "Centerline", def: "A construction line used for symmetry, axes, and dimension references." }
-];
-</script>
-
+</div>
+<div class="lesson-block" data-block="6" data-title="Vocabulary">
+  <div class="vocab-section" data-lesson="2"></div>
+</div>
 <div id="relearn-block"></div>
 
 <script src="/masterlab-mvp-site/js/ml-relearn-engine.js"></script>
@@ -77,6 +67,31 @@ const vocab_2 = [
 <script src="/masterlab-mvp-site/js/ml-browser-ai.js"></script>
 <script src="/masterlab-mvp-site/js/ml-lesson-blocks.js"></script>
 <script src="/masterlab-mvp-site/js/ml-vocab-engine.js"></script>
-</div></div>
+  <div class="vocab-section" data-lesson="2"></div>
+
+<div id="ml-audio-panel">
+  <div id="ml-audio-header">
+    <span id="ml-audio-section-label"></span>
+    <button id="ml-audio-toggle" type="button">[Audio is ON]</button>
+  </div>
+  <audio id="ml-audio-player" controls></audio>
+</div>
+<script src="/masterlab-mvp-site/js/ml-audio-engine.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>MLAudioEngine.init({courseId:"cad-onshape"}));</script>
+<div id="ml-audio-panel">
+  <div id="ml-audio-header">
+    <span id="ml-audio-section-label"></span>
+    <button id="ml-audio-toggle" type="button">[Audio is ON]</button>
+  </div>
+  <audio id="ml-audio-player" controls></audio>
+</div>
+<script src="/masterlab-mvp-site/js/ml-audio-engine.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>MLAudioEngine.init({courseId:"cad-onshape"}));</script>
 </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    MLVocabEngine.loadVocab("cad-onshape", 2);
+  });
+</script>

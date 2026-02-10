@@ -12,28 +12,30 @@
 </div>
 
 <h1>CAD Lesson 1 – Onshape & Sketching Fundamentals</h1>
+<div class="lesson-block" data-block="1" data-title="CAD Lesson 1 – Onshape & Sketching Fundamentals">
+CAD Lesson 1 – Onshape & Sketching Fundamentals
 
 <p>
     In this lesson, you’ll learn the core ideas behind CAD in Onshape:
     what sketches are, how constraints work, and how to fully define geometry.
 </p>
-
-<h2>What is CAD?</h2>
+</div>
+<div class="lesson-block" data-block="2" data-title="What is CAD?">
 <p>
     CAD (Computer‑Aided Design) is used to create precise 2D sketches and 3D models.
     In Onshape, everything starts with a sketch, which you then turn into 3D features
     like extrudes, revolves, and cuts.
 </p>
-
-<h2>Onshape Environment</h2>
+</div>
+<div class="lesson-block" data-block="3" data-title="Onshape Environment">
 <ul>
     <li><strong>Documents:</strong> Cloud‑based containers for your work.</li>
     <li><strong>Part Studios:</strong> Where you create parts and sketches.</li>
     <li><strong>Assemblies:</strong> Where you mate parts together.</li>
     <li><strong>Features:</strong> Extrude, Revolve, Fillet, Chamfer, Shell, Pattern, etc.</li>
 </ul>
-
-<h2>Sketch Constraints</h2>
+</div>
+<div class="lesson-block" data-block="4" data-title="Sketch Constraints">
 <p>Constraints control how geometry behaves. Common ones in Onshape:</p>
 <ul>
     <li><strong>Horizontal / Vertical:</strong> Force lines to be horizontal or vertical.</li>
@@ -45,8 +47,8 @@
     <li><strong>Symmetric:</strong> Geometry mirrors across a line.</li>
     <li><strong>Fix:</strong> Locks geometry in place.</li>
 </ul>
-
-<h2>Fully Defined Sketches</h2>
+</div>
+<div class="lesson-block" data-block="5" data-title="Fully Defined Sketches">
 <p>
     In Onshape, a sketch is:
 </p>
@@ -58,8 +60,8 @@
 <p>
     Your goal is to make important sketches fully defined using a mix of constraints and dimensions.
 </p>
-
-<h2>Dimensions</h2>
+</div>
+<div class="lesson-block" data-block="6" data-title="Dimensions">
 <p>
     Use the <strong>Dimension (D)</strong> tool to set:
 </p>
@@ -69,8 +71,8 @@
     <li>Distances between points</li>
     <li>Angles between lines</li>
 </ul>
-
-<h2>Quick Check</h2>
+</div>
+<div class="lesson-block" data-block="7" data-title="Quick Check">
 <ol>
     <li>What color is a fully defined sketch in Onshape?</li>
     <li>What does the Equal constraint do?</li>
@@ -79,22 +81,10 @@
 </ol>
 
 <!-- ReLearn Block hook -->
-<h2>Vocabulary</h2>
-<ul id="vocab-list"></ul>
-
-<script>
-const vocab_1 = [
-    { term: "CAD", def: "Computer-Aided Design; software used to create 2D sketches and 3D models." },
-    { term: "Sketch", def: "A 2D drawing used as the foundation for 3D features." },
-    { term: "Constraint", def: "A rule that controls geometry relationships and behavior." },
-    { term: "Dimension", def: "A numerical value that specifies size or distance in a sketch or model." },
-    { term: "Fully Defined", def: "A sketch shown in black with all necessary constraints and dimensions." },
-    { term: "Part Studio", def: "A workspace in Onshape where individual parts are created." },
-    { term: "Feature", def: "A 3D operation like Extrude, Revolve, Fillet, or Shell." },
-    { term: "Coincident", def: "A constraint that places a point on another point or edge." }
-];
-</script>
-
+</div>
+<div class="lesson-block" data-block="8" data-title="Vocabulary">
+  <div class="vocab-section" data-lesson="1"></div>
+</div>
 <div id="relearn-block"></div>
 
 <script src="/masterlab-mvp-site/js/ml-relearn-engine.js"></script>
@@ -111,6 +101,31 @@ const vocab_1 = [
 <script src="/masterlab-mvp-site/js/ml-browser-ai.js"></script>
 <script src="/masterlab-mvp-site/js/ml-lesson-blocks.js"></script>
 <script src="/masterlab-mvp-site/js/ml-vocab-engine.js"></script>
-</div></div>
+  <div class="vocab-section" data-lesson="1"></div>
+
+<div id="ml-audio-panel">
+  <div id="ml-audio-header">
+    <span id="ml-audio-section-label"></span>
+    <button id="ml-audio-toggle" type="button">[Audio is ON]</button>
+  </div>
+  <audio id="ml-audio-player" controls></audio>
+</div>
+<script src="/masterlab-mvp-site/js/ml-audio-engine.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>MLAudioEngine.init({courseId:"cad-onshape"}));</script>
+<div id="ml-audio-panel">
+  <div id="ml-audio-header">
+    <span id="ml-audio-section-label"></span>
+    <button id="ml-audio-toggle" type="button">[Audio is ON]</button>
+  </div>
+  <audio id="ml-audio-player" controls></audio>
+</div>
+<script src="/masterlab-mvp-site/js/ml-audio-engine.js"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>MLAudioEngine.init({courseId:"cad-onshape"}));</script>
 </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    MLVocabEngine.loadVocab("cad-onshape", 1);
+  });
+</script>

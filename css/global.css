@@ -371,3 +371,35 @@ button:hover,
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
+
+/* === MasterLab Audio Panel === */
+#ml-audio-panel {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  color: #fff;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1000;
+}
+#ml-audio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+#ml-audio-toggle {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+#ml-audio-player {
+  width: 100%;
+}
