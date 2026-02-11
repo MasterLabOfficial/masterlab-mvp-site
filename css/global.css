@@ -403,3 +403,39 @@ button:hover,
 #ml-audio-player {
   width: 100%;
 }
+
+/* === MasterLab Audio Panel (Everfi Style) === */
+#ml-audio-panel {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: #111;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 9999;
+  width: 260px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+#ml-audio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+#ml-audio-toggle {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+#ml-audio-player {
+  width: 100%;
+}
