@@ -1,0 +1,1 @@
+console.log("MasterLab AI CLI is running!");
